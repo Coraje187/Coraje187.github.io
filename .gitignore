@@ -1,0 +1,14 @@
+# Ignore environment variables containing secrets
+.env
+.env.local
+
+# Ignore system/application logs
+*.log
+logs/
+
+# Ignore Docker state/secrets
+.docker/
+secrets.json
+
+# Ignore local configuration overrides
+config.local.json
