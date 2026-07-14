@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis Grid Labs | Home</title>
+    <style>
+        /* Base Styling */
+        body {
+            background-color: #0d0e12;
+            color: #e5e7eb;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 2px dashed #374151;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #111318;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin: 0 0 10px 0;
+        }
+
+        .subtitle {
+            color: #9ca3af;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .terminal-prompt {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Responsive Grid System */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Watermarked Card Element */
+        .lab-card {
+            background-color: #161821;
+            border: 1px solid #2d3142;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            padding: 25px;
+            transition: border-color 0.3s ease;
+        }
+
+        .lab-card:hover {
+            border-color: #10b981;
+        }
+
+        /* Repeating Security Watermark Overlay */
+        .watermark-overlay {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.03; /* Faint, clean, un-croppable background stamp */
+            transform: rotate(-25deg);
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='250' height='100'><text x='50%' y='50%' font-family='Courier' font-weight='bold' font-size='12' fill='%23ffffff' text-anchor='middle'>GENESIS GRID LABS</text></svg>");
+            background-repeat: repeat;
+        }
+
+        /* Content layer resting safely on top of watermark */
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #10b981;
+            color: #0d0e12;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #059669;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            color: #6b7280;
+            font-size: 0.9rem;
+            border-top: 1px solid #2d3142;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[ GENESIS GRID LABS ]</h1>
+        <div class="subtitle">Where Gaming Meets Development. Built from the ground floor.</div>
+        <div class="terminal-prompt">[genesis@grid-labs]:~$ running_system_rebrand_v1.0... Success.</div>
+    </header>
+
+    <div class="container">
+        <!-- Card 1: The Workshop (Mods) -->
+        <div class="lab-card">
+            <div class="watermark-overlay"></div>
+            <div class="card-content">
+                <h2>// THE WORKSHOP</h2>
+                <p>Custom game modifications, visual patches, and coordinate asset tweaks designed to change the way you play.</p>
+                <p><em>No third-party ad blocks. Straight to the download files.</em></p>
+                <a href="#" class="btn">ACCESS MODS</a>
+            </div>
+        </div>
+
+        <!-- Card 2: The Lab (AI & Scripts) -->
+        <div class="lab-card">
+            <div class="watermark-overlay"></div>
+            <div class="card-content">
+                <h2>// CODE & AI LAB</h2>
+                <p>Local LLM automation configs, command cheat sheets, and active deployment scripts for power users.</p>
+                <p><em>Protected via native terminal-encrypted grid protocols.</em></p>
+                <a href="#" class="btn">VIEW SCRIPTS</a>
+            </div>
+        </div>
+
+        <!-- Card 3: The Feed (Main Channel) -->
+        <div class="lab-card">
+            <div class="watermark-overlay"></div>
+            <div class="card-content">
+                <h2>// RECOVERY FEED</h2>
+                <p>Raw, honest, and early-access game coverage. We verify the source and mechanics before the hype train arrives.</p>
+                <p><em>Watch our video archives directly.</em></p>
+                <a href="#" class="btn">WATCH YOUTUBE</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Genesis Grid Labs&trade;. All Rights Reserved. Priority use established. Unauthorized copying will be flagged.</p>
+    </footer>
+
+</body>
+</html>
