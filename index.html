@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genesis Grid Labs | Home</title>
-<!-- This is the new favicon line -->
     <link rel="icon" type="image/png" href="favicon.png">
-
     <style>
-        /* Base Styling */
+        /* Base Styling - Overhauled with Cyberpunk Colors */
         body {
-            background-color: #0d0e12;
-            color: #e5e7eb;
+            background-color: #06070a; /* Deep space dark blue */
+            color: #d1d5db;
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
@@ -19,28 +17,52 @@
         }
 
         header {
-            border-bottom: 2px dashed #374151;
-            padding: 40px 20px;
+            border-bottom: 2px dashed #3a1c5e; /* Subtle neon purple dash */
+            padding: 50px 20px;
             text-align: center;
-            background-color: #111318;
+            background-color: #0b0c14; /* Slightly lighter deep space blue */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ambient glow behind title */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-25%, -25%);
+            width: 300px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(157, 0, 255, 0) 70%);
+            z-index: 1;
+            pointer-events: none;
         }
 
         h1 {
             color: #ffffff;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
             margin: 0 0 10px 0;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.6), 0 0 30px rgba(157, 0, 255, 0.4);
         }
 
         .subtitle {
             color: #9ca3af;
             font-size: 1.1rem;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .terminal-prompt {
-            color: #10b981;
+            color: #00f2fe; /* Electric Cyan */
             font-weight: bold;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
         }
 
         /* Responsive Grid System */
@@ -55,17 +77,20 @@
 
         /* Watermarked Card Element */
         .lab-card {
-            background-color: #161821;
-            border: 1px solid #2d3142;
+            background-color: #0f111c; /* Tech deck grey-blue */
+            border: 1px solid #222538;
             border-radius: 8px;
             position: relative;
             overflow: hidden;
             padding: 25px;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
+        /* Glow effect on hover */
         .lab-card:hover {
-            border-color: #10b981;
+            border-color: #00f2fe;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15), 0 0 30px rgba(157, 0, 255, 0.1);
+            transform: translateY(-2px);
         }
 
         /* Repeating Security Watermark Overlay */
@@ -77,7 +102,7 @@
             bottom: -50%;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.03; /* Faint, clean, un-croppable background stamp */
+            opacity: 0.02; /* Clean background stamp */
             transform: rotate(-25deg);
             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='250' height='100'><text x='50%' y='50%' font-family='Courier' font-weight='bold' font-size='12' fill='%23ffffff' text-anchor='middle'>GENESIS GRID LABS</text></svg>");
             background-repeat: repeat;
@@ -92,33 +117,36 @@
         h2 {
             color: #ffffff;
             font-size: 1.4rem;
-            border-bottom: 1px solid #374151;
+            border-bottom: 1px solid #222538;
             padding-bottom: 10px;
             margin-top: 0;
+            letter-spacing: 1px;
         }
 
         .btn {
             display: inline-block;
-            background-color: #10b981;
-            color: #0d0e12;
+            background: linear-gradient(135deg, #00f2fe 0%, #9d00ff 100%); /* Blue to Purple Neon Gradient */
+            color: #ffffff;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 11px 22px;
             border-radius: 4px;
             font-weight: bold;
             margin-top: 20px;
-            transition: background-color 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(157, 0, 255, 0.3);
         }
 
         .btn:hover {
-            background-color: #059669;
+            opacity: 0.9;
+            transform: scale(1.02);
         }
 
         footer {
             text-align: center;
             padding: 60px 20px 40px 20px;
-            color: #6b7280;
+            color: #4b5563;
             font-size: 0.9rem;
-            border-top: 1px solid #2d3142;
+            border-top: 1px solid #161826;
         }
     </style>
 </head>
