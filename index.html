@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genesis Grid Labs | Free, Secure, Plug-and-Play Local AI & Community Software</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,11 +21,13 @@
           },
           colors: {
             grid: {
-              bg: '#090D16',
-              card: '#111726',
-              border: '#1E293B',
+              bg: '#06070B',
+              card: '#0D0F1B',
+              border: '#1E2238',
+              purple: '#A855F7',
+              violet: '#8B5CF6',
+              fuchsia: '#D946EF',
               cyan: '#00F0FF',
-              emerald: '#10B981',
               amber: '#F59E0B'
             }
           }
@@ -34,52 +37,56 @@
   </script>
   <style>
     body {
-      background-color: #090D16;
+      background-color: #06070B;
       color: #F8FAFC;
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
-        linear-gradient(to right, rgba(30, 41, 59, 0.25) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
-      background-size: 100% 100%, 40px 40px, 40px 40px;
+        radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 85% 30%, rgba(217, 70, 239, 0.05) 0%, transparent 45%),
+        linear-gradient(to right, rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
     }
     .glass-nav {
-      background: rgba(9, 13, 22, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(6, 7, 11, 0.88);
+      backdrop-filter: blur(14px);
     }
     .card-glow:hover {
-      border-color: rgba(16, 185, 129, 0.45);
-      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.14);
+      border-color: rgba(168, 85, 247, 0.5);
+      box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.22), inset 0 0 15px rgba(168, 85, 247, 0.04);
+    }
+    .cyber-btn-glow:hover {
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.45);
     }
   </style>
 </head>
-<body class="antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+<body class="antialiased selection:bg-purple-500/30 selection:text-purple-200">
 
   <!-- Top Navigation -->
-  <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80">
+  <header class="sticky top-0 z-50 glass-nav border-b border-purple-900/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-400/40 flex items-center justify-center text-emerald-400 font-mono font-bold">
-          GG
+        <div class="relative flex items-center justify-center">
+          <img src="logo.png" alt="Genesis Grid Labs Logo" class="w-10 h-10 rounded-xl object-cover border border-purple-500/40 shadow-[0_0_15px_rgba(168,85,247,0.35)] ring-1 ring-purple-500/20" />
         </div>
         <div>
           <span class="font-bold tracking-tight text-white text-lg">GENESIS GRID</span>
-          <span class="text-xs font-mono uppercase px-2 py-0.5 ml-1.5 rounded bg-slate-800 text-emerald-400 border border-slate-700">LABS</span>
+          <span class="text-xs font-mono uppercase px-2 py-0.5 ml-1.5 rounded bg-purple-950/60 text-purple-300 border border-purple-500/30">LABS</span>
         </div>
       </div>
 
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
-        <a href="#flagship" class="hover:text-emerald-400 transition">Genesis Grid AI</a>
-        <a href="#pillars" class="hover:text-emerald-400 transition">Our Mission</a>
-        <a href="#repositories" class="hover:text-emerald-400 transition">All Free Software</a>
-        <a href="#ollama" class="hover:text-emerald-400 transition">Ollama Models</a>
+        <a href="#flagship" class="hover:text-purple-400 transition">Genesis Grid AI</a>
+        <a href="#pillars" class="hover:text-purple-400 transition">Our Mission</a>
+        <a href="#repositories" class="hover:text-purple-400 transition">All Free Software</a>
+        <a href="#ollama" class="hover:text-purple-400 transition">Ollama Models</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="https://ollama.com/coraje187" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+        <a href="https://ollama.com/coraje187" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-purple-500/20 hover:border-purple-500/40 transition">
           <i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-400"></i>
           Ollama Hub
         </a>
-        <a href="https://github.com/Coraje187" target="_blank" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-400 hover:bg-emerald-300 text-slate-950 transition">
+        <a href="https://github.com/Coraje187" target="_blank" class="cyber-btn-glow inline-flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-mono font-semibold bg-gradient-to-r from-purple-600 via-purple-500 to-fuchsia-500 hover:from-purple-500 hover:to-fuchsia-400 text-white shadow-[0_0_15px_rgba(168,85,247,0.35)] transition">
           <i data-lucide="github" class="w-3.5 h-3.5"></i>
           GitHub
         </a>
@@ -90,13 +97,13 @@
   <!-- Hero Section -->
   <section class="relative pt-16 pb-14 md:pt-24 md:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-6">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono mb-6">
+        <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
         100% Free Forever · Zero Setup Required · Just Hook Up & Run
       </div>
 
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
-        Secure Local AI & Essential Tools <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Everyone Can Afford.</span>
+        Secure Local AI & Essential Tools <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-400">Everyone Can Afford.</span>
       </h1>
 
       <p class="text-slate-300 text-lg sm:text-xl mt-6 max-w-3xl leading-relaxed">
@@ -104,11 +111,11 @@
       </p>
 
       <div class="flex flex-wrap gap-3 pt-8">
-        <a href="#flagship" class="px-6 py-3.5 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-semibold text-sm inline-flex items-center gap-2 transition">
+        <a href="#flagship" class="cyber-btn-glow px-6 py-3.5 rounded-lg bg-gradient-to-r from-purple-600 via-purple-500 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-semibold text-sm inline-flex items-center gap-2 shadow-[0_0_20px_rgba(168,85,247,0.4)] transition">
           Get Genesis Grid AI
           <i data-lucide="arrow-down" class="w-4 h-4"></i>
         </a>
-        <a href="#repositories" class="px-6 py-3.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-mono text-sm inline-flex items-center gap-2 transition">
+        <a href="#repositories" class="px-6 py-3.5 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-purple-500/25 hover:border-purple-500/50 font-mono text-sm inline-flex items-center gap-2 transition">
           Browse All Free Programs
         </a>
       </div>
@@ -117,11 +124,11 @@
 
   <!-- FLAGSHIP SPOTLIGHT: GENESIS GRID -->
   <section id="flagship" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="rounded-2xl bg-gradient-to-br from-[#0F172A] via-[#0B1120] to-[#090D16] border-2 border-emerald-500/30 shadow-2xl p-6 sm:p-10 relative overflow-hidden">
+    <div class="rounded-2xl bg-gradient-to-br from-[#101222] via-[#0B0D18] to-[#06070B] border-2 border-purple-500/30 shadow-[0_0_40px_rgba(168,85,247,0.15)] p-6 sm:p-10 relative overflow-hidden">
       <div class="grid lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-7 space-y-5">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-wider">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Flagship Platform
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono uppercase tracking-wider">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-fuchsia-400"></i> Flagship Platform
           </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Genesis Grid: Private AI on Your Own PC.
@@ -132,29 +139,29 @@
 
           <div class="grid sm:grid-cols-2 gap-3 pt-2">
             <div class="flex items-start gap-2.5">
-              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-400 shrink-0 mt-0.5"></i>
               <span class="text-sm text-slate-300"><strong class="text-white">Hook Up & Run:</strong> Clean visual settings and instant local connection.</span>
             </div>
             <div class="flex items-start gap-2.5">
-              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-400 shrink-0 mt-0.5"></i>
               <span class="text-sm text-slate-300"><strong class="text-white">Air-Gapped Safety:</strong> Runs code inside isolated containers so your PC stays safe.</span>
             </div>
             <div class="flex items-start gap-2.5">
-              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-400 shrink-0 mt-0.5"></i>
               <span class="text-sm text-slate-300"><strong class="text-white">MCP Ready:</strong> Read-only local file gateways and zero-token compression.</span>
             </div>
             <div class="flex items-start gap-2.5">
-              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-400 shrink-0 mt-0.5"></i>
               <span class="text-sm text-slate-300"><strong class="text-white">100% Free:</strong> No subscriptions, no telemetry, no cloud lock-in.</span>
             </div>
           </div>
 
           <div class="flex flex-wrap gap-3 pt-4">
-            <a href="https://github.com/Coraje187/genesis-grid" target="_blank" class="px-5 py-2.5 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-semibold text-sm inline-flex items-center gap-2 transition">
+            <a href="https://github.com/Coraje187/genesis-grid" target="_blank" class="cyber-btn-glow px-5 py-2.5 rounded-lg bg-gradient-to-r from-purple-600 via-purple-500 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-semibold text-sm inline-flex items-center gap-2 shadow-[0_0_15px_rgba(168,85,247,0.35)] transition">
               <i data-lucide="download" class="w-4 h-4"></i>
               Download Genesis Grid on GitHub
             </a>
-            <a href="https://ollama.com/coraje187/genesis-grid" target="_blank" class="px-5 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-sm font-mono inline-flex items-center gap-2 transition">
+            <a href="https://ollama.com/coraje187/genesis-grid" target="_blank" class="px-5 py-2.5 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-purple-500/25 hover:border-purple-500/50 text-sm font-mono inline-flex items-center gap-2 transition">
               View Official Ollama Model &rarr;
             </a>
           </div>
@@ -162,25 +169,25 @@
 
         <!-- Quick Start Box -->
         <div class="lg:col-span-5">
-          <div class="rounded-xl bg-[#070A12] border border-slate-800 p-5 space-y-4 font-mono text-xs">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div class="rounded-xl bg-[#080A14] border border-purple-900/30 p-5 space-y-4 font-mono text-xs shadow-xl">
+            <div class="flex items-center justify-between border-b border-purple-900/30 pb-3">
               <span class="text-slate-400">QUICK_START_GUIDE.sh</span>
-              <span class="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">No API Keys Needed</span>
+              <span class="text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">No API Keys Needed</span>
             </div>
             <div class="space-y-2">
               <div class="text-slate-400"># Step 1: Pull the free Genesis Grid brain</div>
-              <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between text-emerald-400">
+              <div class="p-2.5 rounded bg-slate-950 border border-purple-900/40 flex items-center justify-between text-purple-300">
                 <span>ollama run coraje187/genesis-grid</span>
-                <button onclick="copyCmd('ollama run coraje187/genesis-grid')" class="text-slate-400 hover:text-white">
+                <button onclick="copyCmd('ollama run coraje187/genesis-grid')" class="text-slate-400 hover:text-white transition">
                   <i data-lucide="copy" class="w-4 h-4"></i>
                 </button>
               </div>
             </div>
             <div class="space-y-2 pt-2">
               <div class="text-slate-400"># Step 2: Launch the Desktop Client or Safe Sandbox</div>
-              <div class="p-3 rounded bg-slate-900/60 border border-slate-800/80 text-slate-300 space-y-1.5 leading-relaxed">
+              <div class="p-3 rounded bg-slate-950/70 border border-purple-900/30 text-slate-300 space-y-1.5 leading-relaxed">
                 <div><span class="text-cyan-400">[OK]</span> Local AI Assistant Connected</div>
-                <div><span class="text-cyan-400">[OK]</span> Air-Gapped Docker Sandbox Active</div>
+                <div><span class="text-purple-400">[OK]</span> Air-Gapped Docker Sandbox Active</div>
                 <div><span class="text-cyan-400">[OK]</span> Read-Only File Shield Enabled</div>
               </div>
             </div>
@@ -200,7 +207,7 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <!-- Pillar 1 -->
       <div class="p-6 rounded-xl bg-grid-card border border-grid-border card-glow transition">
-        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4">
+        <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
           <i data-lucide="cpu" class="w-5 h-5"></i>
         </div>
         <h3 class="font-bold text-white text-lg">1. Easy Local AI</h3>
@@ -233,7 +240,7 @@
 
       <!-- Pillar 4 -->
       <div class="p-6 rounded-xl bg-grid-card border border-grid-border card-glow transition">
-        <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4">
+        <div class="w-10 h-10 rounded-lg bg-fuchsia-500/10 border border-fuchsia-500/30 flex items-center justify-center text-fuchsia-400 mb-4">
           <i data-lucide="gamepad-2" class="w-5 h-5"></i>
         </div>
         <h3 class="font-bold text-white text-lg">4. Gaming & Mods Lab</h3>
@@ -256,10 +263,10 @@
 
       <!-- Filter Buttons -->
       <div class="flex flex-wrap gap-2">
-        <button onclick="filterProjects('all', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-emerald-400 text-slate-950 font-semibold transition">All Programs</button>
-        <button onclick="filterProjects('ai', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition">Local AI & Utilities</button>
-        <button onclick="filterProjects('autism', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition">Autism & Speech</button>
-        <button onclick="filterProjects('security', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition">Antivirus & Safety</button>
+        <button onclick="filterProjects('all', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-semibold shadow-[0_0_15px_rgba(168,85,247,0.35)] transition">All Programs</button>
+        <button onclick="filterProjects('ai', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-purple-500/40 hover:text-white transition">Local AI & Utilities</button>
+        <button onclick="filterProjects('autism', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-purple-500/40 hover:text-white transition">Autism & Speech</button>
+        <button onclick="filterProjects('security', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-purple-500/40 hover:text-white transition">Antivirus & Safety</button>
       </div>
     </div>
 
@@ -268,39 +275,39 @@
 
   <!-- Ollama Model Registry Section -->
   <section id="ollama" class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="rounded-2xl bg-gradient-to-b from-slate-900/90 to-[#0B101D] border border-slate-800 p-6 sm:p-10">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800">
+    <div class="rounded-2xl bg-gradient-to-b from-slate-900/90 to-[#0A0C16] border border-purple-900/30 p-6 sm:p-10 shadow-2xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-purple-900/30">
         <div>
-          <span class="text-xs font-mono uppercase tracking-wider text-emerald-400">One-Command Local AI Brains</span>
+          <span class="text-xs font-mono uppercase tracking-wider text-purple-400">One-Command Local AI Brains</span>
           <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Free Ollama Models (ollama.com/coraje187)</h2>
           <p class="text-slate-400 text-sm mt-1">No subscriptions or complex config files. Install Ollama, paste one command, and run offline.</p>
         </div>
-        <a href="https://ollama.com/coraje187" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-mono transition self-start">
+        <a href="https://ollama.com/coraje187" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-mono transition self-start shadow-[0_0_15px_rgba(168,85,247,0.2)]">
           Open Ollama Hub
           <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
         </a>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 pt-8">
-        <div class="p-5 rounded-xl bg-slate-950/70 border border-slate-800 flex flex-col justify-between">
+        <div class="p-5 rounded-xl bg-slate-950/70 border border-purple-900/30 hover:border-purple-500/50 flex flex-col justify-between transition">
           <div>
             <div class="flex items-center justify-between gap-2">
               <span class="font-mono font-bold text-white text-base">genesis-grid</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Flagship AI</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/30">Flagship AI</span>
             </div>
             <p class="text-sm text-slate-300 mt-3 leading-relaxed">
               Dual-Agent software builder (Architect Blueprint + Code Producer in one pass). Available in standard and uncensored weights.
             </p>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between font-mono text-xs">
-            <code class="text-emerald-400">ollama run coraje187/genesis-grid</code>
-            <button onclick="copyCmd('ollama run coraje187/genesis-grid')" class="text-slate-400 hover:text-white">
+          <div class="mt-5 pt-3 border-t border-purple-900/30 flex items-center justify-between font-mono text-xs">
+            <code class="text-purple-300">ollama run coraje187/genesis-grid</code>
+            <button onclick="copyCmd('ollama run coraje187/genesis-grid')" class="text-slate-400 hover:text-white transition">
               <i data-lucide="copy" class="w-4 h-4"></i>
             </button>
           </div>
         </div>
 
-        <div class="p-5 rounded-xl bg-slate-950/70 border border-slate-800 flex flex-col justify-between">
+        <div class="p-5 rounded-xl bg-slate-950/70 border border-purple-900/30 hover:border-purple-500/50 flex flex-col justify-between transition">
           <div>
             <div class="flex items-center justify-between gap-2">
               <span class="font-mono font-bold text-white text-base">minicrew-unified</span>
@@ -310,27 +317,27 @@
               Unified multi-persona coding assistant designed to run smoothly on everyday home computers and consumer graphics cards.
             </p>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between font-mono text-xs">
-            <code class="text-emerald-400">ollama run coraje187/minicrew-unified</code>
-            <button onclick="copyCmd('ollama run coraje187/minicrew-unified')" class="text-slate-400 hover:text-white">
+          <div class="mt-5 pt-3 border-t border-purple-900/30 flex items-center justify-between font-mono text-xs">
+            <code class="text-purple-300">ollama run coraje187/minicrew-unified</code>
+            <button onclick="copyCmd('ollama run coraje187/minicrew-unified')" class="text-slate-400 hover:text-white transition">
               <i data-lucide="copy" class="w-4 h-4"></i>
             </button>
           </div>
         </div>
 
-        <div class="p-5 rounded-xl bg-slate-950/70 border border-slate-800 flex flex-col justify-between">
+        <div class="p-5 rounded-xl bg-slate-950/70 border border-purple-900/30 hover:border-purple-500/50 flex flex-col justify-between transition">
           <div>
             <div class="flex items-center justify-between gap-2">
               <span class="font-mono font-bold text-white text-base">minicrew-developer</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Lightweight</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/20">Lightweight</span>
             </div>
             <p class="text-sm text-slate-300 mt-3 leading-relaxed">
               Pairs with `minicrew-architect` to turn ideas into clean, ready-to-run Python programs without cloud fees.
             </p>
           </div>
-          <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between font-mono text-xs">
-            <code class="text-emerald-400">ollama pull coraje187/minicrew-developer</code>
-            <button onclick="copyCmd('ollama pull coraje187/minicrew-developer')" class="text-slate-400 hover:text-white">
+          <div class="mt-5 pt-3 border-t border-purple-900/30 flex items-center justify-between font-mono text-xs">
+            <code class="text-purple-300">ollama pull coraje187/minicrew-developer</code>
+            <button onclick="copyCmd('ollama pull coraje187/minicrew-developer')" class="text-slate-400 hover:text-white transition">
               <i data-lucide="copy" class="w-4 h-4"></i>
             </button>
           </div>
@@ -340,19 +347,19 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800/80 py-10 mt-16 text-center text-xs text-slate-500 font-mono">
+  <footer class="border-t border-purple-900/30 py-10 mt-16 text-center text-xs text-slate-500 font-mono">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>© 2026 Genesis Grid Labs (Coraje187). Free, secure, plug-and-play software built for everyone.</div>
+      <div>&copy; 2026 Genesis Grid Labs (Coraje187). Free, secure, plug-and-play software built for everyone.</div>
       <div class="flex items-center gap-5 text-slate-400">
-        <a href="https://github.com/Coraje187" target="_blank" class="hover:text-emerald-400">GitHub</a>
-        <a href="https://ollama.com/coraje187" target="_blank" class="hover:text-emerald-400">Ollama</a>
-        <a href="https://www.youtube.com" target="_blank" class="hover:text-emerald-400">YouTube</a>
+        <a href="https://github.com/Coraje187" target="_blank" class="hover:text-purple-400 transition">GitHub</a>
+        <a href="https://ollama.com/coraje187" target="_blank" class="hover:text-purple-400 transition">Ollama</a>
+        <a href="https://www.youtube.com" target="_blank" class="hover:text-purple-400 transition">YouTube</a>
       </div>
     </div>
   </footer>
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-5 right-5 px-4 py-2.5 rounded-lg bg-emerald-500 text-slate-950 font-mono text-xs font-semibold shadow-lg opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="toast" class="fixed bottom-5 right-5 px-4 py-2.5 rounded-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-mono text-xs font-semibold shadow-[0_0_20px_rgba(168,85,247,0.5)] border border-purple-400/30 opacity-0 pointer-events-none transition-opacity duration-300">
     Copied to clipboard!
   </div>
 
@@ -462,11 +469,11 @@
 
       grid.innerHTML = filtered.map(p => {
         const badge = p.url
-          ? `<span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">${p.status}</span>`
+          ? `<span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30">${p.status}</span>`
           : `<span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">${p.status}</span>`;
 
         const action = p.url
-          ? `<a href="${p.url}" target="_blank" class="text-xs font-mono text-emerald-400 hover:underline inline-flex items-center gap-1">Get It Free &rarr;</a>`
+          ? `<a href="${p.url}" target="_blank" class="text-xs font-mono text-purple-400 hover:text-purple-300 hover:underline inline-flex items-center gap-1">Get It Free &rarr;</a>`
           : `<span class="text-xs font-mono text-slate-500">Coming Soon</span>`;
 
         return `
@@ -478,7 +485,7 @@
               </div>
               <p class="text-slate-400 text-sm leading-relaxed">${p.desc}</p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <div class="mt-6 pt-4 border-t border-purple-900/30 flex items-center justify-between">
               <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded">${p.setup}</span>
               ${action}
             </div>
@@ -489,11 +496,9 @@
 
     function filterProjects(type, btnEl) {
       document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-400', 'text-slate-950', 'font-semibold');
-        btn.classList.add('bg-slate-900', 'text-slate-300');
+        btn.className = "filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-purple-500/40 hover:text-white transition";
       });
-      btnEl.classList.remove('bg-slate-900', 'text-slate-300');
-      btnEl.classList.add('bg-emerald-400', 'text-slate-950', 'font-semibold');
+      btnEl.className = "filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-semibold shadow-[0_0_15px_rgba(168,85,247,0.35)] transition";
       renderProjects(type);
     }
 
@@ -507,10 +512,5 @@
     renderProjects();
     lucide.createIcons();
   </script>
-</body>
-</html>
-        <p>&copy; 2026 Genesis Grid Labs&trade;. All Rights Reserved. Priority use established. Unauthorized copying will be flagged.</p>
-    </footer>
-
 </body>
 </html>
