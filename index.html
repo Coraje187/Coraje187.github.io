@@ -1,199 +1,514 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genesis Grid Labs | Home</title>
-    <link class="brand-favicon" rel="icon" type="image/png" href="favicon.png">
-    <style>
-        /* Base Styling - Overhauled with Cyberpunk Colors */
-        body {
-            background-color: #06070a; /* Deep space dark blue */
-            color: #d1d5db;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genesis Grid Labs | Free, Secure, Plug-and-Play Local AI & Community Software</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            grid: {
+              bg: '#090D16',
+              card: '#111726',
+              border: '#1E293B',
+              cyan: '#00F0FF',
+              emerald: '#10B981',
+              amber: '#F59E0B'
+            }
+          }
         }
-
-        header {
-            border-bottom: 2px dashed #3a1c5e; /* Subtle neon purple dash */
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #0b0c14; /* Slightly lighter deep space blue */
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Ambient glow behind title */
-        header::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-25%, -25%);
-            width: 300px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(157, 0, 255, 0) 70%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        h1 {
-            color: #ffffff;
-            font-size: 2.5rem;
-            letter-spacing: 3px;
-            margin: 0 0 10px 0;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 0 15px rgba(0, 242, 254, 0.6), 0 0 30px rgba(157, 0, 255, 0.4);
-        }
-
-        .subtitle {
-            color: #9ca3af;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .terminal-prompt {
-            color: #00f2fe; /* Electric Cyan */
-            font-weight: bold;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
-        }
-
-        /* Responsive Grid System */
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* Watermarked Card Element */
-        .lab-card {
-            background-color: #0f111c; /* Tech deck grey-blue */
-            border: 1px solid #222538;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        /* Glow effect on hover */
-        .lab-card:hover {
-            border-color: #00f2fe;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15), 0 0 30px rgba(157, 0, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Repeating Security Watermark Overlay */
-        .watermark-overlay {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            right: -50%;
-            bottom: -50%;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.02; /* Clean background stamp */
-            transform: rotate(-25deg);
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='250' height='100'><text x='50%' y='50%' font-family='Courier' font-weight='bold' font-size='12' fill='%23ffffff' text-anchor='middle'>GENESIS GRID LABS</text></svg>");
-            background-repeat: repeat;
-        }
-
-        /* Content layer resting safely on top of watermark */
-        .card-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        h2 {
-            color: #ffffff;
-            font-size: 1.4rem;
-            border-bottom: 1px solid #222538;
-            padding-bottom: 10px;
-            margin-top: 0;
-            letter-spacing: 1px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #00f2fe 0%, #9d00ff 100%); /* Blue to Purple Neon Gradient */
-            color: #ffffff;
-            text-decoration: none;
-            padding: 11px 22px;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            box-shadow: 0 4px 15px rgba(157, 0, 255, 0.3);
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            transform: scale(1.02);
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 20px 40px 20px;
-            color: #4b5563;
-            font-size: 0.9rem;
-            border-top: 1px solid #161826;
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #090D16;
+      color: #F8FAFC;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(to right, rgba(30, 41, 59, 0.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
+      background-size: 100% 100%, 40px 40px, 40px 40px;
+    }
+    .glass-nav {
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(12px);
+    }
+    .card-glow:hover {
+      border-color: rgba(16, 185, 129, 0.45);
+      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.14);
+    }
+  </style>
 </head>
-<body>
+<body class="antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
 
-    <header>
-        <h1>[ GENESIS GRID LABS ]</h1>
-        <div class="subtitle">Where AI/Gaming Meets Development. Built from the ground floor.</div>
-        <div class="terminal-prompt">[genesis@grid-labs]:~$ running_system_rebrand_v1.0... Success.</div>
-    </header>
+  <!-- Top Navigation -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-400/40 flex items-center justify-center text-emerald-400 font-mono font-bold">
+          GG
+        </div>
+        <div>
+          <span class="font-bold tracking-tight text-white text-lg">GENESIS GRID</span>
+          <span class="text-xs font-mono uppercase px-2 py-0.5 ml-1.5 rounded bg-slate-800 text-emerald-400 border border-slate-700">LABS</span>
+        </div>
+      </div>
 
-    <div class="container">
-        <!-- Card 1: The Workshop (Mods) -->
-        <div class="lab-card">
-            <div class="watermark-overlay"></div>
-            <div class="card-content">
-                <h2>// THE WORKSHOP</h2>
-                <p>Custom game modifications, visual patches, and coordinate asset tweaks designed to change the way you play.</p>
-                <p><em>No third-party ad blocks. Straight to the download files.</em></p>
-                <a href="https://github.com/Coraje187/Coraje187.github.io/discussions" class="btn">ACCESS MODS</a>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#flagship" class="hover:text-emerald-400 transition">Genesis Grid AI</a>
+        <a href="#pillars" class="hover:text-emerald-400 transition">Our Mission</a>
+        <a href="#repositories" class="hover:text-emerald-400 transition">All Free Software</a>
+        <a href="#ollama" class="hover:text-emerald-400 transition">Ollama Models</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://ollama.com/coraje187" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-400"></i>
+          Ollama Hub
+        </a>
+        <a href="https://github.com/Coraje187" target="_blank" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-400 hover:bg-emerald-300 text-slate-950 transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-16 pb-14 md:pt-24 md:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        100% Free Forever · Zero Setup Required · Just Hook Up & Run
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+        Secure Local AI & Essential Tools <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Everyone Can Afford.</span>
+      </h1>
+
+      <p class="text-slate-300 text-lg sm:text-xl mt-6 max-w-3xl leading-relaxed">
+        Genesis Grid started with a simple goal: give everyday people a <strong class="text-white">secure, private AI that is completely free and effortless to set up</strong>. Today, our lab builds plug-and-play local AI, antivirus protection, and autism & non-verbal speech apps with zero subscriptions or paywalls.
+      </p>
+
+      <div class="flex flex-wrap gap-3 pt-8">
+        <a href="#flagship" class="px-6 py-3.5 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-semibold text-sm inline-flex items-center gap-2 transition">
+          Get Genesis Grid AI
+          <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+        <a href="#repositories" class="px-6 py-3.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-mono text-sm inline-flex items-center gap-2 transition">
+          Browse All Free Programs
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP SPOTLIGHT: GENESIS GRID -->
+  <section id="flagship" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="rounded-2xl bg-gradient-to-br from-[#0F172A] via-[#0B1120] to-[#090D16] border-2 border-emerald-500/30 shadow-2xl p-6 sm:p-10 relative overflow-hidden">
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-wider">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Flagship Platform
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Genesis Grid: Private AI on Your Own PC.
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Most local AI tools require complicated coding, command-line headaches, or expensive cloud API keys. <strong class="text-white">Genesis Grid</strong> gives you a complete, ready-to-use AI assistant client with built-in security sandboxing—so you can run powerful AI offline without risking your personal files or paying monthly fees.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-3 pt-2">
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span class="text-sm text-slate-300"><strong class="text-white">Hook Up & Run:</strong> Clean visual settings and instant local connection.</span>
             </div>
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span class="text-sm text-slate-300"><strong class="text-white">Air-Gapped Safety:</strong> Runs code inside isolated containers so your PC stays safe.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span class="text-sm text-slate-300"><strong class="text-white">MCP Ready:</strong> Read-only local file gateways and zero-token compression.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span class="text-sm text-slate-300"><strong class="text-white">100% Free:</strong> No subscriptions, no telemetry, no cloud lock-in.</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-4">
+            <a href="https://github.com/Coraje187/genesis-grid" target="_blank" class="px-5 py-2.5 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-semibold text-sm inline-flex items-center gap-2 transition">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              Download Genesis Grid on GitHub
+            </a>
+            <a href="https://ollama.com/coraje187/genesis-grid" target="_blank" class="px-5 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-sm font-mono inline-flex items-center gap-2 transition">
+              View Official Ollama Model &rarr;
+            </a>
+          </div>
         </div>
 
-        <!-- Card 2: The Lab (AI & Scripts) -->
-        <div class="lab-card">
-            <div class="watermark-overlay"></div>
-            <div class="card-content">
-                <h2>// CODE & AI LAB</h2>
-                <p>Local LLM automation configs, command cheat sheets, and active deployment scripts for power users.</p>
-                <p><em>Protected via native terminal-encrypted grid protocols.</em></p>
-                <a href="https://github.com/Coraje187?tab=repositories" class="btn" target="_blank">VIEW SCRIPTS</a>
+        <!-- Quick Start Box -->
+        <div class="lg:col-span-5">
+          <div class="rounded-xl bg-[#070A12] border border-slate-800 p-5 space-y-4 font-mono text-xs">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <span class="text-slate-400">QUICK_START_GUIDE.sh</span>
+              <span class="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">No API Keys Needed</span>
             </div>
+            <div class="space-y-2">
+              <div class="text-slate-400"># Step 1: Pull the free Genesis Grid brain</div>
+              <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between text-emerald-400">
+                <span>ollama run coraje187/genesis-grid</span>
+                <button onclick="copyCmd('ollama run coraje187/genesis-grid')" class="text-slate-400 hover:text-white">
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+            <div class="space-y-2 pt-2">
+              <div class="text-slate-400"># Step 2: Launch the Desktop Client or Safe Sandbox</div>
+              <div class="p-3 rounded bg-slate-900/60 border border-slate-800/80 text-slate-300 space-y-1.5 leading-relaxed">
+                <div><span class="text-cyan-400">[OK]</span> Local AI Assistant Connected</div>
+                <div><span class="text-cyan-400">[OK]</span> Air-Gapped Docker Sandbox Active</div>
+                <div><span class="text-cyan-400">[OK]</span> Read-Only File Shield Enabled</div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Card 3: The Feed (Main Channel) -->
-        <div class="lab-card">
-            <div class="watermark-overlay"></div>
-            <div class="card-content">
-                <h2>// RECOVERY FEED</h2>
-                <p>Raw, honest, and early-access game coverage. We verify the source and mechanics before the hype train arrives.</p>
-                <p><em>Watch our video archives directly.</em></p>
-                <a href="https://www.youtube.com/@GenesisGridLabs" class="btn" target="_blank">WATCH YOUTUBE</a>
-            </div>
-        </div>
+  <!-- 4 Core Divisions -->
+  <section id="pillars" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white">Built to Help People First</h2>
+      <p class="text-slate-400 text-sm mt-1">Every program we build follows the same rule: free, secure, and ready to run out of the box.</p>
     </div>
 
-    <footer>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Pillar 1 -->
+      <div class="p-6 rounded-xl bg-grid-card border border-grid-border card-glow transition">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4">
+          <i data-lucide="cpu" class="w-5 h-5"></i>
+        </div>
+        <h3 class="font-bold text-white text-lg">1. Easy Local AI</h3>
+        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+          Private desktop AI assistants, custom Ollama models, and offline document research tools that work without monthly cloud subscriptions.
+        </p>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="p-6 rounded-xl bg-grid-card border border-grid-border card-glow transition">
+        <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-4">
+          <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+        </div>
+        <h3 class="font-bold text-white text-lg">2. Autism & Speech Apps</h3>
+        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+          Paywall-free AAC communication tablets for non-verbal kids & adults, visual family routine boards, and offline speech emotion tools.
+        </p>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="p-6 rounded-xl bg-grid-card border border-grid-border card-glow transition">
+        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-4">
+          <i data-lucide="shield-check" class="w-5 h-5"></i>
+        </div>
+        <h3 class="font-bold text-white text-lg">3. Antivirus & Defense</h3>
+        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+          Plug-and-play malware & antivirus protection, air-gapped code sandboxes, local file shields, and severe weather safety feeds.
+        </p>
+      </div>
+
+      <!-- Pillar 4 -->
+      <div class="p-6 rounded-xl bg-grid-card border border-grid-border card-glow transition">
+        <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4">
+          <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+        </div>
+        <h3 class="font-bold text-white text-lg">4. Gaming & Mods Lab</h3>
+        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+          Direct-download custom game modifications, visual patches, performance tweaks, and honest, hype-free YouTube game breakdowns.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filterable Project Matrix -->
+  <section id="repositories" class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">Free Software Directory</h2>
+        <p class="text-slate-400 text-sm mt-1">
+          Public downloads available right now on GitHub, plus upcoming family and security programs in testing.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap gap-2">
+        <button onclick="filterProjects('all', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-emerald-400 text-slate-950 font-semibold transition">All Programs</button>
+        <button onclick="filterProjects('ai', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition">Local AI & Utilities</button>
+        <button onclick="filterProjects('autism', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition">Autism & Speech</button>
+        <button onclick="filterProjects('security', this)" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition">Antivirus & Safety</button>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5" id="project-grid"></div>
+  </section>
+
+  <!-- Ollama Model Registry Section -->
+  <section id="ollama" class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="rounded-2xl bg-gradient-to-b from-slate-900/90 to-[#0B101D] border border-slate-800 p-6 sm:p-10">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-wider text-emerald-400">One-Command Local AI Brains</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Free Ollama Models (ollama.com/coraje187)</h2>
+          <p class="text-slate-400 text-sm mt-1">No subscriptions or complex config files. Install Ollama, paste one command, and run offline.</p>
+        </div>
+        <a href="https://ollama.com/coraje187" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-mono transition self-start">
+          Open Ollama Hub
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 pt-8">
+        <div class="p-5 rounded-xl bg-slate-950/70 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="font-mono font-bold text-white text-base">genesis-grid</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Flagship AI</span>
+            </div>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+              Dual-Agent software builder (Architect Blueprint + Code Producer in one pass). Available in standard and uncensored weights.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between font-mono text-xs">
+            <code class="text-emerald-400">ollama run coraje187/genesis-grid</code>
+            <button onclick="copyCmd('ollama run coraje187/genesis-grid')" class="text-slate-400 hover:text-white">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-slate-950/70 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="font-mono font-bold text-white text-base">minicrew-unified</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Fast Home PC</span>
+            </div>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+              Unified multi-persona coding assistant designed to run smoothly on everyday home computers and consumer graphics cards.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between font-mono text-xs">
+            <code class="text-emerald-400">ollama run coraje187/minicrew-unified</code>
+            <button onclick="copyCmd('ollama run coraje187/minicrew-unified')" class="text-slate-400 hover:text-white">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-slate-950/70 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="font-mono font-bold text-white text-base">minicrew-developer</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Lightweight</span>
+            </div>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+              Pairs with `minicrew-architect` to turn ideas into clean, ready-to-run Python programs without cloud fees.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between font-mono text-xs">
+            <code class="text-emerald-400">ollama pull coraje187/minicrew-developer</code>
+            <button onclick="copyCmd('ollama pull coraje187/minicrew-developer')" class="text-slate-400 hover:text-white">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 py-10 mt-16 text-center text-xs text-slate-500 font-mono">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>© 2026 Genesis Grid Labs (Coraje187). Free, secure, plug-and-play software built for everyone.</div>
+      <div class="flex items-center gap-5 text-slate-400">
+        <a href="https://github.com/Coraje187" target="_blank" class="hover:text-emerald-400">GitHub</a>
+        <a href="https://ollama.com/coraje187" target="_blank" class="hover:text-emerald-400">Ollama</a>
+        <a href="https://www.youtube.com" target="_blank" class="hover:text-emerald-400">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 px-4 py-2.5 rounded-lg bg-emerald-500 text-slate-950 font-mono text-xs font-semibold shadow-lg opacity-0 pointer-events-none transition-opacity duration-300">
+    Copied to clipboard!
+  </div>
+
+  <script>
+    const projects = [
+      {
+        name: "Genesis-Grid (Local AI Client)",
+        status: "Available Now",
+        category: "ai",
+        setup: "Hook Up & Run",
+        desc: "Our flagship free local AI assistant client with simple visual settings, MCP Server management, and a secure Telegram bridge.",
+        url: "https://github.com/Coraje187/genesis-grid"
+      },
+      {
+        name: "Routines-AI (Autism & Family Board)",
+        status: "Available Now",
+        category: "autism",
+        setup: "Zero Subscriptions",
+        desc: "Open-source wall calendar, visual routine board, and shared family memory app built for neurodivergent & autistic households.",
+        url: "https://github.com/Coraje187/Routines-AI"
+      },
+      {
+        name: "Genesis-Speech-Tab (AAC Suite)",
+        status: "In Family Testing",
+        category: "autism",
+        setup: "100% Free Forever",
+        desc: "Full AAC speech communication app for non-verbal children and adults—featuring pictures, real voices, and quiz modes with zero paywalls.",
+        url: null
+      },
+      {
+        name: "Genesis Antivirus & Safety Grid",
+        status: "In R&D Testing",
+        category: "security",
+        setup: "Plug & Play Defense",
+        desc: "Free, no-bloat antivirus and malware protection engineered for people who want real home PC security without predatory yearly fees.",
+        url: null
+      },
+      {
+        name: "Secure-Grid-Genesis-Execution",
+        status: "Available Now",
+        category: "security",
+        setup: "Air-Gapped Sandbox",
+        desc: "Protects your computer by running untrusted scripts and AI code inside isolated, resource-capped local containers so malware can't touch your files.",
+        url: "https://github.com/Coraje187/Secure-Grid-Genesis-Execution"
+      },
+      {
+        name: "Local-Data-MCP-Connector",
+        status: "Available Now",
+        category: "security",
+        setup: "Read-Only Shield",
+        desc: "Strict read-only security gateway that lets your local AI read personal documents safely without ever modifying files or uploading data online.",
+        url: "https://github.com/Coraje187/Local-Data-MCP-Connector"
+      },
+      {
+        name: "MindGround-AI (Local NotebookLM)",
+        status: "Available Now",
+        category: "ai",
+        setup: "100% Offline",
+        desc: "Chat with your own documents, study notes, and files privately on your home computer—inspired by NotebookLM with zero cloud uploads.",
+        url: "https://github.com/Coraje187/MindGround-AI-NotebookLM"
+      },
+      {
+        name: "Genesis-ESTT (Emotion & Speech)",
+        status: "Available Now",
+        category: "autism",
+        setup: "Offline Privacy",
+        desc: "Offline speech and emotion recognition tool that transcribes audio and labels emotional tone locally without sending voice data to the cloud.",
+        url: "https://github.com/Coraje187/Genesis-ESTT"
+      },
+      {
+        name: "Genesis-Micro (Tablet Macro Deck)",
+        status: "Available Now",
+        category: "ai",
+        setup: "Instant Sync",
+        desc: "Save money on expensive hardware macro pads—use any affordable tablet as a touch-friendly AI and shortcut deck synced straight to your PC.",
+        url: "https://github.com/Coraje187/Genesis-Micro"
+      },
+      {
+        name: "Zero-Token-AST-Compressor",
+        status: "Available Now",
+        category: "ai",
+        setup: "Lightweight CLI",
+        desc: "Compresses codebases down to their core structure so local AI models can understand large projects on regular home hardware.",
+        url: "https://github.com/Coraje187/Zero-Token-AST-Compressor"
+      },
+      {
+        name: "GenesisArchive-Pro",
+        status: "Available Now",
+        category: "ai",
+        setup: "Fast & Clean",
+        desc: "High-speed file archival and backup utility built in Rust with zero bloatware or nag screens.",
+        url: "https://github.com/Coraje187/GenesisArchive-Pro"
+      },
+      {
+        name: "Genesis Stormwatch Live",
+        status: "In R&D Testing",
+        category: "security",
+        setup: "Live Hazard Grid",
+        desc: "Severe weather tracking and local emergency hazard telemetry feed designed to help families stay safe and informed.",
+        url: null
+      }
+    ];
+
+    function renderProjects(filter = 'all') {
+      const grid = document.getElementById('project-grid');
+      const filtered = projects.filter(p => filter === 'all' ? true : p.category === filter);
+
+      grid.innerHTML = filtered.map(p => {
+        const badge = p.url
+          ? `<span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">${p.status}</span>`
+          : `<span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">${p.status}</span>`;
+
+        const action = p.url
+          ? `<a href="${p.url}" target="_blank" class="text-xs font-mono text-emerald-400 hover:underline inline-flex items-center gap-1">Get It Free &rarr;</a>`
+          : `<span class="text-xs font-mono text-slate-500">Coming Soon</span>`;
+
+        return `
+          <div class="p-6 rounded-xl bg-grid-card border border-grid-border card-glow flex flex-col justify-between transition">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-bold text-white text-base">${p.name}</span>
+                ${badge}
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed">${p.desc}</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded">${p.setup}</span>
+              ${action}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterProjects(type, btnEl) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-400', 'text-slate-950', 'font-semibold');
+        btn.classList.add('bg-slate-900', 'text-slate-300');
+      });
+      btnEl.classList.remove('bg-slate-900', 'text-slate-300');
+      btnEl.classList.add('bg-emerald-400', 'text-slate-950', 'font-semibold');
+      renderProjects(type);
+    }
+
+    function copyCmd(text) {
+      navigator.clipboard.writeText(text);
+      const toast = document.getElementById('toast');
+      toast.classList.remove('opacity-0');
+      setTimeout(() => toast.classList.add('opacity-0'), 2200);
+    }
+
+    renderProjects();
+    lucide.createIcons();
+  </script>
+</body>
+</html>
         <p>&copy; 2026 Genesis Grid Labs&trade;. All Rights Reserved. Priority use established. Unauthorized copying will be flagged.</p>
     </footer>
 
