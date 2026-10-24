@@ -478,11 +478,13 @@
       },
       {
         name: "Genesis Stormwatch Live",
-        status: "In R&D Testing",
+        status: "In Live Testing",
         category: "security",
         setup: "Live Hazard Grid",
         desc: "Severe weather tracking and local emergency hazard telemetry feed designed to help families stay safe and informed.",
-        url: null
+        url: "https://genesis-stormwatch-live.vercel.app/",
+        btnText: "Launch StormWatch Live &rarr;",
+        isLive: true
       }
     ];
 
@@ -491,11 +493,15 @@
       const filtered = projects.filter(p => filter === 'all' ? true : p.category === filter);
 
       grid.innerHTML = filtered.map(p => {
-        const badge = p.url
+        const badge = p.isLive
+          ? `<span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/40 animate-pulse">${p.status}</span>`
+          : p.url
           ? `<span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30">${p.status}</span>`
           : `<span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">${p.status}</span>`;
 
-        const action = p.url
+        const action = p.isLive
+          ? `<a href="${p.url}" target="_blank" class="text-xs font-mono px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold shadow-md shadow-cyan-950/50 inline-flex items-center gap-1.5 transition">${p.btnText || 'Launch &rarr;'}</a>`
+          : p.url
           ? `<a href="${p.url}" target="_blank" class="text-xs font-mono text-purple-400 hover:text-purple-300 hover:underline inline-flex items-center gap-1">Get It Free &rarr;</a>`
           : `<span class="text-xs font-mono text-slate-500">Coming Soon</span>`;
 
